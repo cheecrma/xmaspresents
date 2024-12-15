@@ -1,21 +1,21 @@
 // src/app/page.js
-
-"use client";
+"use client"; // 클라이언트 컴포넌트로 설정
 
 import Wardrobe from "../components/Wardrobe";
 import styled from "styled-components";
+import { useEffect } from "react"; // 클라이언트 전용 훅 예시
 
 const HomeContainer = styled.div`
-  background-color: #f5f0e1; // 따뜻한 베이지 톤 배경
+  background-color: #f5f0e1;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; // 위쪽으로 정렬
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
-  padding: 50px 20px 0; // 상단 패딩을 늘려서 위로 배치
-  overflow: hidden; // 스크롤 방지
-  margin: 0; // 여백 제거
+  padding: 50px 20px 0;
+  overflow: hidden;
+  margin: 0;
 `;
 
 const Title = styled.h1`
@@ -36,6 +36,10 @@ const WardrobeContainer = styled.div`
 `;
 
 export default function Home() {
+  useEffect(() => {
+    console.log("페이지가 로드되었습니다.");
+  }, []);
+
   return (
     <HomeContainer>
       <Title>신비한 옷장에 오신 것을 환영합니다</Title>

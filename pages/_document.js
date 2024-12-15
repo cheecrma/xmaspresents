@@ -6,19 +6,8 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          {/* Dancing Script 폰트를 동기 로드 */}
-          <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
-            as="style"
-            onLoad="this.onload=null;this.rel='stylesheet'"
-          />
-          <noscript>
-            <link
-              href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
-              rel="stylesheet"
-            />
-          </noscript>
+          {/* globals.css를 명시적으로 불러오기 */}
+          <link rel="stylesheet" href="/globals.css" />
         </Head>
         <body>
           <Main />

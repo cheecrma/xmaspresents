@@ -1,6 +1,4 @@
-// src/app/layout.js
-
-import "./globals.css"; // 글로벌 CSS 파일 불러오기
+import "./globals.css?v=1.0.1"; // 캐시 방지용 버전 쿼리 추가
 
 export default function RootLayout({ children }) {
   return (

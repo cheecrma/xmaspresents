@@ -1,4 +1,7 @@
 // src/components/Wardrobe.js
+"use client";
+
+import React from "react";
 import { useRouter } from "next/navigation";
 
 export default function Wardrobe() {
@@ -9,9 +12,15 @@ export default function Wardrobe() {
   };
 
   return (
-    <div onClick={handleClick} style={{ cursor: "pointer" }}>
-      <img src="/images/wardrobe.png" alt="Wardrobe" width="200" />
-      <p>Start</p>
+    <div
+      style={{ cursor: "pointer", textAlign: "center" }}
+      onClick={handleClick}
+    >
+      <img
+        src="/images/wardrobe.png"
+        alt="Wardrobe"
+        style={{ width: "200px", height: "auto" }}
+      />
     </div>
   );
 }

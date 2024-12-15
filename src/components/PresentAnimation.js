@@ -1,42 +1,64 @@
 // src/components/PresentAnimation.js
-import React from "react";
-import styled, { keyframes } from "styled-components";
 
-// 필기체 애니메이션
-const handwriting = keyframes`
-  0% {
-    width: 0;
-    opacity: 1;
-  }
-  100% {
-    width: 100%;
-    opacity: 1;
-  }
-`;
+"use client";
 
-const blinkCaret = keyframes`
-  50% {
-    border-color: transparent;
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import styled, { keyframes, css } from "styled-components";
+
+// 일정한 속도의 타이핑 효과를 위한 애니메이션
+const typing = keyframes`
+  from {
+    clip-path: inset(0 100% 0 0); // 오른쪽에서부터 텍스트를 가림
+  }
+  to {
+    clip-path: inset(0 0 0 0); // 텍스트를 완전히 보여줌
   }
 `;
 
-// 필기체 스타일 및 애니메이션 적용
-const PresentText = styled.p`
+const AnimationContainer = styled.div`
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px; // 양쪽에 여백 추가
+`;
+
+const AnimationText = styled.div`
   font-family: "Dancing Script", cursive;
-  font-size: 2rem;
+  font-size: 24px;
+  color: white;
   white-space: nowrap;
-  overflow: hidden;
   display: inline-block;
-  letter-spacing: 0.1em;
-  border-right: 0.1em solid black;
-  animation: ${handwriting} 3s steps(14) 1s forwards,
-    ${blinkCaret} 0.75s step-end infinite;
+  overflow: hidden;
+  animation: ${typing} 5s forwards; // 5초 동안 타이핑 애니메이션 적용
+
+  ${({ $isAnimationDone }) =>
+    $isAnimationDone &&
+    css`
+      border-right: none; // 애니메이션이 끝나면 커서 효과 제거
+    `}
 `;
 
 export default function PresentAnimation() {
+  const router = useRouter();
+  const [isAnimationDone, setIsAnimationDone] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsAnimationDone(true);
+      router.push("/instructions");
+    }, 6000); // 애니메이션 지속 시간과 동일하게 설정 (6초)
+
+    return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 정리
+  }, [router]);
+
   return (
-    <div>
-      <PresentText>Present for you</PresentText>
-    </div>
+    <AnimationContainer>
+      <AnimationText $isAnimationDone={isAnimationDone}>
+        Present for you
+      </AnimationText>
+    </AnimationContainer>
   );
 }

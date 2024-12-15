@@ -6,7 +6,6 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          {/* globals.css를 명시적으로 불러오기 */}
           <link rel="stylesheet" href="/globals.css" />
         </Head>
         <body>

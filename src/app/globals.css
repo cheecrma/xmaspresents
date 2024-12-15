@@ -1,32 +1,29 @@
+/* Tailwind CSS 기본 설정 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 전역 색상 설정 */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f0e1; /* 따뜻한 베이지 톤 배경 */
+  --foreground: #171717; /* 기본 글자 색상 */
 }
 
+/* 다크 모드 설정 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* 다크 모드 배경 */
+    --foreground: #ededed; /* 다크 모드 글자 색상 */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* src/app/globals.css */
-
+/* HTML 및 Body 스타일 */
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f0e1; /* 따뜻한 베이지 톤 배경 */
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }

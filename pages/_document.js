@@ -6,18 +6,19 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          {/* Dancing Script 폰트를 Google Fonts에서 추가 */}
+          {/* Dancing Script 폰트를 동기 로드 */}
           <link
+            rel="preload"
             href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
-            rel="stylesheet"
+            as="style"
+            onLoad="this.onload=null;this.rel='stylesheet'"
           />
-
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
-            rel="stylesheet"
-          />
+          <noscript>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+              rel="stylesheet"
+            />
+          </noscript>
         </Head>
         <body>
           <Main />

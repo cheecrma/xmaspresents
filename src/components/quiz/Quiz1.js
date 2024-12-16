@@ -72,19 +72,19 @@ export default function Quiz1({ onCorrect, onClose }) {
 
   return (
     <QuizContainer>
-      <Question>퀴즈 1: 가장 큰 행성은 무엇일까요?</Question>
+      <Question>소공로: 서울 중구에서 가장 좋은 호텔은?</Question>
       <OptionsContainer>
         <OptionButton onClick={() => handleOptionClick("A")}>
-          A. 지구
+          A. 롯데호텔
         </OptionButton>
         <OptionButton onClick={() => handleOptionClick("B")}>
-          B. 목성
+          B. 더플라자호텔
         </OptionButton>
         <OptionButton onClick={() => handleOptionClick("C")}>
-          C. 화성
+          C. 조선호텔
         </OptionButton>
         <OptionButton onClick={() => handleOptionClick("D")}>
-          D. 금성
+          D. 라마다호텔
         </OptionButton>
       </OptionsContainer>
       <CloseButton onClick={onClose}>닫기</CloseButton>

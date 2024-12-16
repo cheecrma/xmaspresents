@@ -49,7 +49,7 @@ export default function PresentAnimation() {
     const timer = setTimeout(() => {
       setIsAnimationDone(true);
       router.push("/instructions");
-    }, 6000); // 애니메이션 지속 시간과 동일하게 설정 (6초)
+    }, 5500); // 애니메이션 지속 시간과 동일하게 설정 (6초)
 
     return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 정리
   }, [router]);

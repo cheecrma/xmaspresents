@@ -58,7 +58,7 @@ export default function Instructions() {
   const router = useRouter();
 
   const handleProceed = () => {
-    router.push("/map");
+    router.push("/character-selection");
   };
 
   return (
@@ -73,7 +73,7 @@ export default function Instructions() {
           (제작자들이 업무 시간 외에 취미로 만든 프로젝트로 재밌게 귀엽게
           봐주시길 바랍니다)
         </Message>
-        <Button onClick={handleProceed}>시작하기</Button>
+        <Button onClick={handleProceed}>캐릭터 생성하기</Button>
       </Signboard>
     </InstructionsContainer>
   );

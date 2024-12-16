@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   text-align: center;
-  padding: 50px;
+  padding: 20px;
   font-family: Arial, sans-serif;
 `;
 
@@ -15,11 +15,13 @@ const CharacterGrid = styled.div`
   justify-content: center;
   gap: 20px;
   margin: 20px 0;
+  flex-wrap: wrap; /* 화면 크기가 줄어들 때 이미지가 한 줄에 쌓이지 않도록 설정 */
 `;
 
 const CharacterOption = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 100%; /* 부모 크기에 맞춰 이미지 크기를 100%로 조정 */
+  max-width: 100px; /* 최대 크기 설정 */
+  height: auto; /* 비율 유지 */
   cursor: pointer;
   border: ${({ selected }) =>
     selected ? "3px solid #5a3e36" : "3px solid transparent"};
@@ -142,7 +144,7 @@ export default function CharacterSelection() {
         onChange={(e) => setCharacterName(e.target.value.slice(0, 7))}
         maxLength={7}
       />
-      <p style={{ fontSize: "14px", color: "#777", margin: "5px 0 50px" }}>
+      <p style={{ fontSize: "14px", color: "#777", margin: "0px 0 50px" }}>
         이름은 최대 7글자까지 입력할 수 있습니다.
       </p>
       <div>
